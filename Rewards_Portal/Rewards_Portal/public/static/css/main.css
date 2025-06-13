@@ -202,3 +202,10 @@ input[type="number"] {
 .notification-container.show {
   opacity: 1;
 }
+
+.messages {
+  padding: 10px;
+  list-style: none;
+  color: red;
+  font-weight: bold;
+}

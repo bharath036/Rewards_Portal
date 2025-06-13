@@ -11,6 +11,13 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 </head>
 <body>
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
     <h1>Rewards Portal </h1>
 
     <div class="container">
@@ -53,15 +60,24 @@
       <form method="POST" id="form">
         {% csrf_token %}
         <div class="form-control">
+        <label for="text">Points Type</label>
+        <select class="form-select form-select-sm" name = "points_type" id="points_type" aria-label="Small select example">
+          <option selected>Select Give Or Take</option>
+          <option value="GIVE">Give</option>
+          <option value="TAKE">Take</option>
+        </select>
+      </div>
+
+        <div class="form-control">
           <label for="text">Appreciation</label>
           <input type="text" name = "appreciation" id="text" placeholder="Enter appreciation..." />
         </div>
         <div class="form-control">
           <label for="points">Points <br />
-            <small>(-100 = expense, 100 = income)</small></label>
+  
           <input type="number" name="points" id="points" placeholder="Enter points..." />
         </div>
-        <button class="btn" type="submit">Add transaction</button>
+        <button class="btn" type="submit">Add appreciation</button>
       </form>
     </div>
     <!-- Notification -->
