@@ -48,6 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Rewards_Portal.middleware.RequestLoggingMiddleware.RequestMiddlewareLogs'
+
 ]
 
 ROOT_URLCONF = 'Rewards_Portal.urls'
